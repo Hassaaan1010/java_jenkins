@@ -1,14 +1,14 @@
 pipeline {
     agent any
+
+    tools {
+        maven 'maven3'
+    }
+
     stages {
         stage('Build') {
             steps {
-                sh 'echo "build"'   // on Windows
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'echo "test"'
+                bat 'mvn clean install'
             }
         }
     }
